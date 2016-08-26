@@ -243,6 +243,9 @@
     NSPredicate *predicate2 = [NSPredicate predicateWithFormat:@"name ENDSWITH %@"  , @"lxz"];
     // 其中包含lxz
     NSPredicate *predicate3 = [NSPredicate predicateWithFormat:@"name contains %@"  , @"lxz"];
+    // 还可以设置正则表达式作为查找条件，这样使查询条件更加强大，下面只是给了个例子
+    NSString *mobile = @"^1(3[0-9]|5[0-35-9]|8[025-9])\\d{8}$";
+    NSPredicate *predicate4 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", mobile];
 }
 
 #pragma mark - ----- Fetch Request ------
@@ -304,6 +307,62 @@
         NSLog(@"CoreData Fetch Data Error : %@", error);
     }
 }
+
+/** 
+ 获取返回结果的Count值，通过设置NSFetchRequest的resultType属性
+ */
+- (IBAction)getResultCount1:(UIButton *)sender {
+    // 设置过滤条件，可以根据需求设置自己的过滤条件
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"age < 24"];
+    
+    // 创建请求对象，并指明操作Student表
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Student"];
+    fetchRequest.predicate = predicate;
+    
+    // 这一步是关键。设置返回结果类型为Count，返回结果为NSNumber类型
+    fetchRequest.resultType = NSCountResultType;
+    
+    // 执行查询操作，返回的结果还是数组，数组中只存在一个对象，就是计算出的Count值
+    NSError *error = nil;
+    NSArray *dataList = [self.schoolMOC executeFetchRequest:fetchRequest error:&error];
+    
+    // 返回结果存在数组的第一个元素中，是一个NSNumber的对象，通过这个对象即可获得Count值
+    NSInteger count = [dataList.firstObject integerValue];
+    NSLog(@"fetch request result Employee.count = %ld", count);
+    
+    // 错误处理
+    if (error) {
+        NSLog(@"fetch request result error : %@", error);
+    }
+}
+
+/** 
+ 获取返回结果的Count值，通过调用MOC提供的特定方法
+ */
+- (IBAction)getResultCount2:(UIButton *)sender {
+    // 设置过滤条件
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"age < 24"];
+    
+    // 创建请求对象，指明操作Student表
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Student"];
+    fetchRequest.predicate = predicate;
+    
+    // 通过调用MOC的countForFetchRequest:error:方法，获取请求结果count值，返回结果直接是NSUInteger类型变量
+    NSError *error = nil;
+    NSUInteger count = [self.schoolMOC countForFetchRequest:fetchRequest error:&error];
+    NSLog(@"fetch request result count is : %ld", count);
+    
+    // 错误处理
+    if (error) {
+        NSLog(@"fetch request result error : %@", error);
+    }
+}
+
+#pragma mark - ----- 连表操作 ------
+/** 
+ 写在博客里的
+ Demo只是来辅助读者更好的理解文章中的内容，应该结合博客和Demo一起学习，只看Demo还是不能理解更深层的道理。
+ */
 
 
 #pragma mark - ----- Test Data ------

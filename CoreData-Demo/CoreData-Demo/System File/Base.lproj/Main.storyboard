@@ -80,18 +80,8 @@
                                     <action selector="fuzzySearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RNO-fJ-nay"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="twG-rd-dGi">
-                                <rect key="frame" x="0.0" y="114" width="320" height="1"/>
-                                <animations/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8p6-Zh-DA8">
-                                <rect key="frame" x="0.0" y="163" width="320" height="1"/>
-                                <animations/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tyf-4z-z9e">
-                                <rect key="frame" x="20" y="173" width="125" height="30"/>
+                                <rect key="frame" x="20" y="171" width="125" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.88075022920000001" green="1" blue="0.61818030899999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="加载请求模板"/>
@@ -100,7 +90,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AJ3-xC-2hq">
-                                <rect key="frame" x="175" y="173" width="125" height="30"/>
+                                <rect key="frame" x="175" y="171" width="125" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.88075022920000001" green="1" blue="0.61818030899999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="请求结果排序"/>
@@ -108,11 +98,39 @@
                                     <action selector="resultSort:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bli-Be-16T"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xZ5-sc-glv">
-                                <rect key="frame" x="0.0" y="212" width="320" height="1"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="twG-rd-dGi">
+                                <rect key="frame" x="0.0" y="114" width="320" height="1"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xZ5-sc-glv">
+                                <rect key="frame" x="0.0" y="245" width="320" height="1"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8p6-Zh-DA8">
+                                <rect key="frame" x="0.0" y="163" width="320" height="1"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRP-3o-4uM">
+                                <rect key="frame" x="20" y="208" width="125" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.88075022920000001" green="1" blue="0.61818030899999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="获取Count方法1"/>
+                                <connections>
+                                    <action selector="getResultCount1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VQb-OW-RgK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Okk-np-ynq">
+                                <rect key="frame" x="175" y="208" width="125" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.88075022920000001" green="1" blue="0.61818030899999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="获取Count方法2"/>
+                                <connections>
+                                    <action selector="getResultCount2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="32o-xG-bTp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
