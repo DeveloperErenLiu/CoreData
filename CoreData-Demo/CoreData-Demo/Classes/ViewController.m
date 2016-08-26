@@ -245,7 +245,7 @@
     NSPredicate *predicate3 = [NSPredicate predicateWithFormat:@"name contains %@"  , @"lxz"];
 }
 
-#pragma mark - ----- Fetch Request Model ------
+#pragma mark - ----- Fetch Request ------
 
 /** 
  加载模型文件中设置的FetchRequest请求模板，模板名为StudentAge，在School.xcdatamodeld中设置
@@ -281,12 +281,13 @@
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Student"];
     
     // 设置请求条件，通过设置的条件，来过滤出需要的数据
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name = %@", @"lxz"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name LIKE %@", @"*lxz*"];
     request.predicate = predicate;
     
     // 设置请求结果排序方式，可以设置一个或一组排序方式，最后将所有的排序方式添加到排序数组中
     NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"age" ascending:YES];
     // NSSortDescriptor的操作都是在SQLite层级完成的，不会将对象加载到内存中，所以对内存的消耗是非常小的
+    // 下面request的sort对象是一个数组，也就是可以设置多种排序条件，但注意条件不要冲突
     request.sortDescriptors = @[sort];
     
     // 执行获取请求操作，获取的托管对象将会被存储在一个数组中并返回
