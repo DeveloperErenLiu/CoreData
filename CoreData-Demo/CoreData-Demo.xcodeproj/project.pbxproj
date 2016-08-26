@@ -7,25 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		79EEDE4D1D702A1F00CCA659 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EEDE4C1D702A1F00CCA659 /* main.m */; };
-		79EEDE501D702A1F00CCA659 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EEDE4F1D702A1F00CCA659 /* AppDelegate.m */; };
-		79EEDE531D702A1F00CCA659 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EEDE521D702A1F00CCA659 /* ViewController.m */; };
-		79EEDE561D702A1F00CCA659 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79EEDE541D702A1F00CCA659 /* Main.storyboard */; };
-		79EEDE581D702A1F00CCA659 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79EEDE571D702A1F00CCA659 /* Assets.xcassets */; };
-		79EEDE5B1D702A1F00CCA659 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79EEDE591D702A1F00CCA659 /* LaunchScreen.storyboard */; };
+		79EEDE6E1D702C8600CCA659 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EEDE641D702C8600CCA659 /* AppDelegate.m */; };
+		79EEDE6F1D702C8600CCA659 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79EEDE671D702C8600CCA659 /* Assets.xcassets */; };
+		79EEDE701D702C8600CCA659 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79EEDE681D702C8600CCA659 /* LaunchScreen.storyboard */; };
+		79EEDE711D702C8600CCA659 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79EEDE6A1D702C8600CCA659 /* Main.storyboard */; };
+		79EEDE721D702C8600CCA659 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79EEDE6C1D702C8600CCA659 /* Info.plist */; };
+		79EEDE731D702C8600CCA659 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EEDE6D1D702C8600CCA659 /* main.m */; };
+		79EEDE771D702C9D00CCA659 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EEDE761D702C9D00CCA659 /* ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		79EEDE481D702A1F00CCA659 /* CoreData-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CoreData-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		79EEDE4C1D702A1F00CCA659 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		79EEDE4E1D702A1F00CCA659 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		79EEDE4F1D702A1F00CCA659 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		79EEDE511D702A1F00CCA659 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		79EEDE521D702A1F00CCA659 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		79EEDE551D702A1F00CCA659 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		79EEDE571D702A1F00CCA659 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		79EEDE5A1D702A1F00CCA659 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		79EEDE5C1D702A1F00CCA659 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79EEDE631D702C8600CCA659 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		79EEDE641D702C8600CCA659 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		79EEDE671D702C8600CCA659 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		79EEDE691D702C8600CCA659 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		79EEDE6B1D702C8600CCA659 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		79EEDE6C1D702C8600CCA659 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79EEDE6D1D702C8600CCA659 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		79EEDE751D702C9D00CCA659 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		79EEDE761D702C9D00CCA659 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,25 +59,49 @@
 		79EEDE4A1D702A1F00CCA659 /* CoreData-Demo */ = {
 			isa = PBXGroup;
 			children = (
-				79EEDE4E1D702A1F00CCA659 /* AppDelegate.h */,
-				79EEDE4F1D702A1F00CCA659 /* AppDelegate.m */,
-				79EEDE511D702A1F00CCA659 /* ViewController.h */,
-				79EEDE521D702A1F00CCA659 /* ViewController.m */,
-				79EEDE541D702A1F00CCA659 /* Main.storyboard */,
-				79EEDE571D702A1F00CCA659 /* Assets.xcassets */,
-				79EEDE591D702A1F00CCA659 /* LaunchScreen.storyboard */,
-				79EEDE5C1D702A1F00CCA659 /* Info.plist */,
-				79EEDE4B1D702A1F00CCA659 /* Supporting Files */,
+				79EEDE741D702C9D00CCA659 /* Classes */,
+				79EEDE621D702C8600CCA659 /* AppDelegate */,
+				79EEDE651D702C8600CCA659 /* Model File */,
+				79EEDE661D702C8600CCA659 /* System File */,
 			);
 			path = "CoreData-Demo";
 			sourceTree = "<group>";
 		};
-		79EEDE4B1D702A1F00CCA659 /* Supporting Files */ = {
+		79EEDE621D702C8600CCA659 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				79EEDE4C1D702A1F00CCA659 /* main.m */,
+				79EEDE631D702C8600CCA659 /* AppDelegate.h */,
+				79EEDE641D702C8600CCA659 /* AppDelegate.m */,
 			);
-			name = "Supporting Files";
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		79EEDE651D702C8600CCA659 /* Model File */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Model File";
+			sourceTree = "<group>";
+		};
+		79EEDE661D702C8600CCA659 /* System File */ = {
+			isa = PBXGroup;
+			children = (
+				79EEDE671D702C8600CCA659 /* Assets.xcassets */,
+				79EEDE681D702C8600CCA659 /* LaunchScreen.storyboard */,
+				79EEDE6A1D702C8600CCA659 /* Main.storyboard */,
+				79EEDE6C1D702C8600CCA659 /* Info.plist */,
+				79EEDE6D1D702C8600CCA659 /* main.m */,
+			);
+			path = "System File";
+			sourceTree = "<group>";
+		};
+		79EEDE741D702C9D00CCA659 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				79EEDE751D702C9D00CCA659 /* ViewController.h */,
+				79EEDE761D702C9D00CCA659 /* ViewController.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,9 +161,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79EEDE5B1D702A1F00CCA659 /* LaunchScreen.storyboard in Resources */,
-				79EEDE581D702A1F00CCA659 /* Assets.xcassets in Resources */,
-				79EEDE561D702A1F00CCA659 /* Main.storyboard in Resources */,
+				79EEDE721D702C8600CCA659 /* Info.plist in Resources */,
+				79EEDE711D702C8600CCA659 /* Main.storyboard in Resources */,
+				79EEDE6F1D702C8600CCA659 /* Assets.xcassets in Resources */,
+				79EEDE701D702C8600CCA659 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,29 +175,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79EEDE531D702A1F00CCA659 /* ViewController.m in Sources */,
-				79EEDE501D702A1F00CCA659 /* AppDelegate.m in Sources */,
-				79EEDE4D1D702A1F00CCA659 /* main.m in Sources */,
+				79EEDE6E1D702C8600CCA659 /* AppDelegate.m in Sources */,
+				79EEDE731D702C8600CCA659 /* main.m in Sources */,
+				79EEDE771D702C9D00CCA659 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		79EEDE541D702A1F00CCA659 /* Main.storyboard */ = {
+		79EEDE681D702C8600CCA659 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				79EEDE551D702A1F00CCA659 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		79EEDE591D702A1F00CCA659 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				79EEDE5A1D702A1F00CCA659 /* Base */,
+				79EEDE691D702C8600CCA659 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		79EEDE6A1D702C8600CCA659 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79EEDE6B1D702C8600CCA659 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -261,7 +287,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "CoreData-Demo/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/CoreData-Demo/System File/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.liuxiaozhuang.CoreData-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -272,7 +298,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "CoreData-Demo/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/CoreData-Demo/System File/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.liuxiaozhuang.CoreData-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
