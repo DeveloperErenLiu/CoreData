@@ -14,6 +14,17 @@
 		79EEDE721D702C8600CCA659 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79EEDE6C1D702C8600CCA659 /* Info.plist */; };
 		79EEDE731D702C8600CCA659 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EEDE6D1D702C8600CCA659 /* main.m */; };
 		79EEDE771D702C9D00CCA659 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EEDE761D702C9D00CCA659 /* ViewController.m */; };
+		79EEDE7A1D702D7C00CCA659 /* Company.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79EEDE781D702D7C00CCA659 /* Company.xcdatamodeld */; };
+		79EEDE7D1D70332F00CCA659 /* Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EEDE7C1D70332F00CCA659 /* Description.m */; };
+		79EEDE821D70373400CCA659 /* Department+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EEDE7F1D70373400CCA659 /* Department+CoreDataProperties.m */; };
+		79EEDE831D70373400CCA659 /* Department.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EEDE811D70373400CCA659 /* Department.m */; };
+		79EEDE881D70373E00CCA659 /* Employee+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EEDE851D70373E00CCA659 /* Employee+CoreDataProperties.m */; };
+		79EEDE891D70373E00CCA659 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EEDE871D70373E00CCA659 /* Employee.m */; };
+		79EEDE8C1D70405A00CCA659 /* School.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79EEDE8A1D70405A00CCA659 /* School.xcdatamodeld */; };
+		79EEDE911D70416F00CCA659 /* Student+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EEDE8E1D70416F00CCA659 /* Student+CoreDataProperties.m */; };
+		79EEDE921D70416F00CCA659 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EEDE901D70416F00CCA659 /* Student.m */; };
+		79EEDE971D70417A00CCA659 /* Teacher+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EEDE941D70417A00CCA659 /* Teacher+CoreDataProperties.m */; };
+		79EEDE981D70417A00CCA659 /* Teacher.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EEDE961D70417A00CCA659 /* Teacher.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +38,26 @@
 		79EEDE6D1D702C8600CCA659 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		79EEDE751D702C9D00CCA659 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		79EEDE761D702C9D00CCA659 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		79EEDE791D702D7C00CCA659 /* Company.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Company.xcdatamodel; sourceTree = "<group>"; };
+		79EEDE7B1D70332F00CCA659 /* Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Description.h; sourceTree = "<group>"; };
+		79EEDE7C1D70332F00CCA659 /* Description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Description.m; sourceTree = "<group>"; };
+		79EEDE7E1D70373400CCA659 /* Department+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Department+CoreDataProperties.h"; sourceTree = "<group>"; };
+		79EEDE7F1D70373400CCA659 /* Department+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Department+CoreDataProperties.m"; sourceTree = "<group>"; };
+		79EEDE801D70373400CCA659 /* Department.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Department.h; sourceTree = "<group>"; };
+		79EEDE811D70373400CCA659 /* Department.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Department.m; sourceTree = "<group>"; };
+		79EEDE841D70373E00CCA659 /* Employee+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Employee+CoreDataProperties.h"; sourceTree = "<group>"; };
+		79EEDE851D70373E00CCA659 /* Employee+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Employee+CoreDataProperties.m"; sourceTree = "<group>"; };
+		79EEDE861D70373E00CCA659 /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Employee.h; sourceTree = "<group>"; };
+		79EEDE871D70373E00CCA659 /* Employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Employee.m; sourceTree = "<group>"; };
+		79EEDE8B1D70405A00CCA659 /* School.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = School.xcdatamodel; sourceTree = "<group>"; };
+		79EEDE8D1D70416F00CCA659 /* Student+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Student+CoreDataProperties.h"; sourceTree = "<group>"; };
+		79EEDE8E1D70416F00CCA659 /* Student+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Student+CoreDataProperties.m"; sourceTree = "<group>"; };
+		79EEDE8F1D70416F00CCA659 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		79EEDE901D70416F00CCA659 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		79EEDE931D70417A00CCA659 /* Teacher+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Teacher+CoreDataProperties.h"; sourceTree = "<group>"; };
+		79EEDE941D70417A00CCA659 /* Teacher+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Teacher+CoreDataProperties.m"; sourceTree = "<group>"; };
+		79EEDE951D70417A00CCA659 /* Teacher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Teacher.h; sourceTree = "<group>"; };
+		79EEDE961D70417A00CCA659 /* Teacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Teacher.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +110,8 @@
 		79EEDE651D702C8600CCA659 /* Model File */ = {
 			isa = PBXGroup;
 			children = (
+				79EEDE9A1D70418A00CCA659 /* School */,
+				79EEDE991D70418100CCA659 /* Company */,
 			);
 			path = "Model File";
 			sourceTree = "<group>";
@@ -102,6 +135,40 @@
 				79EEDE761D702C9D00CCA659 /* ViewController.m */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		79EEDE991D70418100CCA659 /* Company */ = {
+			isa = PBXGroup;
+			children = (
+				79EEDE781D702D7C00CCA659 /* Company.xcdatamodeld */,
+				79EEDE7B1D70332F00CCA659 /* Description.h */,
+				79EEDE7C1D70332F00CCA659 /* Description.m */,
+				79EEDE7E1D70373400CCA659 /* Department+CoreDataProperties.h */,
+				79EEDE7F1D70373400CCA659 /* Department+CoreDataProperties.m */,
+				79EEDE801D70373400CCA659 /* Department.h */,
+				79EEDE811D70373400CCA659 /* Department.m */,
+				79EEDE841D70373E00CCA659 /* Employee+CoreDataProperties.h */,
+				79EEDE851D70373E00CCA659 /* Employee+CoreDataProperties.m */,
+				79EEDE861D70373E00CCA659 /* Employee.h */,
+				79EEDE871D70373E00CCA659 /* Employee.m */,
+			);
+			name = Company;
+			sourceTree = "<group>";
+		};
+		79EEDE9A1D70418A00CCA659 /* School */ = {
+			isa = PBXGroup;
+			children = (
+				79EEDE8A1D70405A00CCA659 /* School.xcdatamodeld */,
+				79EEDE8D1D70416F00CCA659 /* Student+CoreDataProperties.h */,
+				79EEDE8E1D70416F00CCA659 /* Student+CoreDataProperties.m */,
+				79EEDE8F1D70416F00CCA659 /* Student.h */,
+				79EEDE901D70416F00CCA659 /* Student.m */,
+				79EEDE931D70417A00CCA659 /* Teacher+CoreDataProperties.h */,
+				79EEDE941D70417A00CCA659 /* Teacher+CoreDataProperties.m */,
+				79EEDE951D70417A00CCA659 /* Teacher.h */,
+				79EEDE961D70417A00CCA659 /* Teacher.m */,
+			);
+			name = School;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,9 +242,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79EEDE911D70416F00CCA659 /* Student+CoreDataProperties.m in Sources */,
 				79EEDE6E1D702C8600CCA659 /* AppDelegate.m in Sources */,
+				79EEDE821D70373400CCA659 /* Department+CoreDataProperties.m in Sources */,
 				79EEDE731D702C8600CCA659 /* main.m in Sources */,
+				79EEDE8C1D70405A00CCA659 /* School.xcdatamodeld in Sources */,
+				79EEDE881D70373E00CCA659 /* Employee+CoreDataProperties.m in Sources */,
+				79EEDE7D1D70332F00CCA659 /* Description.m in Sources */,
 				79EEDE771D702C9D00CCA659 /* ViewController.m in Sources */,
+				79EEDE981D70417A00CCA659 /* Teacher.m in Sources */,
+				79EEDE891D70373E00CCA659 /* Employee.m in Sources */,
+				79EEDE7A1D702D7C00CCA659 /* Company.xcdatamodeld in Sources */,
+				79EEDE971D70417A00CCA659 /* Teacher+CoreDataProperties.m in Sources */,
+				79EEDE831D70373400CCA659 /* Department.m in Sources */,
+				79EEDE921D70416F00CCA659 /* Student.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +404,29 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		79EEDE781D702D7C00CCA659 /* Company.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				79EEDE791D702D7C00CCA659 /* Company.xcdatamodel */,
+			);
+			currentVersion = 79EEDE791D702D7C00CCA659 /* Company.xcdatamodel */;
+			path = Company.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		79EEDE8A1D70405A00CCA659 /* School.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				79EEDE8B1D70405A00CCA659 /* School.xcdatamodel */,
+			);
+			currentVersion = 79EEDE8B1D70405A00CCA659 /* School.xcdatamodel */;
+			path = School.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 79EEDE401D702A1F00CCA659 /* Project object */;
 }
