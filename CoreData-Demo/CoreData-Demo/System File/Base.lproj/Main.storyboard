@@ -36,7 +36,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9O-3R-6vm">
-                                <rect key="frame" x="20" y="80" width="125" height="30"/>
+                                <rect key="frame" x="20" y="76" width="125" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.88075022920000001" green="1" blue="0.61818030899999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="School-改"/>
@@ -45,7 +45,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lB-bu-Tva">
-                                <rect key="frame" x="175" y="80" width="125" height="30"/>
+                                <rect key="frame" x="175" y="76" width="125" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.88075022920000001" green="1" blue="0.61818030899999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="School-查"/>
@@ -53,6 +53,66 @@
                                     <action selector="schoolSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yHF-jZ-irr"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RxM-on-VDz">
+                                <rect key="frame" x="20" y="125" width="125" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.88075022920000001" green="1" blue="0.61818030899999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="分页查询"/>
+                                <connections>
+                                    <action selector="pageSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3CO-rb-4gh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhY-uB-zxu">
+                                <rect key="frame" x="98" y="518" width="125" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.88075022920000001" green="1" blue="0.61818030899999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="添加测试数据"/>
+                                <connections>
+                                    <action selector="addTestData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aal-WL-s3f"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUy-6m-8fu">
+                                <rect key="frame" x="175" y="125" width="125" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.88075022920000001" green="1" blue="0.61818030899999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="模糊查询"/>
+                                <connections>
+                                    <action selector="fuzzySearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RNO-fJ-nay"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="twG-rd-dGi">
+                                <rect key="frame" x="0.0" y="114" width="320" height="1"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8p6-Zh-DA8">
+                                <rect key="frame" x="0.0" y="163" width="320" height="1"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tyf-4z-z9e">
+                                <rect key="frame" x="20" y="173" width="125" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.88075022920000001" green="1" blue="0.61818030899999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="加载请求模板"/>
+                                <connections>
+                                    <action selector="fetchRequest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yqr-Qx-BPS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AJ3-xC-2hq">
+                                <rect key="frame" x="175" y="173" width="125" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.88075022920000001" green="1" blue="0.61818030899999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="请求结果排序"/>
+                                <connections>
+                                    <action selector="resultSort:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bli-Be-16T"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xZ5-sc-glv">
+                                <rect key="frame" x="0.0" y="212" width="320" height="1"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

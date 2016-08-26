@@ -16,6 +16,7 @@
 
 /** 
  因为是Demo，所以这里就不顾及那么多代码规范了，主要是为了讲CoreData技术点。
+ Demo和博客中所有代码都经过测试，运行都没有问题。
  */
 
 @interface ViewController ()
@@ -135,6 +136,8 @@
     // 执行获取请求，获取到符合要求的托管对象
     NSError *error = nil;
     NSArray<Student *> *students = [self.schoolMOC executeFetchRequest:request error:&error];
+    
+    // 遍历获取到的数组，并执行修改操作
     [students enumerateObjectsUsingBlock:^(Student * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         obj.age = @(24);
     }];
@@ -160,6 +163,8 @@
     // 执行获取操作，获取所有Student托管对象
     NSError *error = nil;
     NSArray<Student *> *students = [self.schoolMOC executeFetchRequest:request error:&error];
+    
+    // 遍历输出查询结果
     [students enumerateObjectsUsingBlock:^(Student * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSLog(@"Student Name : %@, Age : %ld", obj.name, [obj.age integerValue]);
     }];
@@ -167,6 +172,162 @@
     // 错误处理
     if (error) {
         NSLog(@"CoreData Ergodic Data Error : %@", error);
+    }
+}
+
+#pragma mark - ----- Page && Fuzzy ------
+
+/** 
+ 分页查询
+ */
+- (IBAction)pageSearch:(UIButton *)sender {
+    // 创建获取数据的请求对象，并指明操作Student表
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Student"];
+    
+    // 设置查找起始点，这里是从搜索结果的第六个开始获取
+    request.fetchOffset = 6;
+    
+    // 设置分页，每次请求获取六个托管对象
+    request.fetchLimit = 6;
+    
+    // 设置排序规则，这里设置年龄升序排序
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"age" ascending:YES];
+    request.sortDescriptors = @[descriptor];
+    
+    // 执行查询操作
+    NSError *error = nil;
+    NSArray<Student *> *students = [self.schoolMOC executeFetchRequest:request error:&error];
+    
+    // 遍历输出查询结果
+    [students enumerateObjectsUsingBlock:^(Student * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSLog(@"Page Search Result Name : %@, Age : %ld", obj.name, [obj.age integerValue]);
+    }];
+    
+    // 错误处理
+    if (error) {
+        NSLog(@"Page Search Data Error : %@", error);
+    }
+}
+
+/** 
+ 模糊查询
+ */
+- (IBAction)fuzzySearch:(UIButton *)sender {
+    // 创建获取数据的请求对象，设置对Student表进行操作
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Student"];
+    
+    // 创建模糊查询条件。这里设置的带通配符的查询，查询条件是结果包含lxz
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name LIKE %@", @"*lxz*"];
+    request.predicate = predicate;
+    
+    // 执行查询操作
+    NSError *error = nil;
+    NSArray<Student *> *students = [self.schoolMOC executeFetchRequest:request error:&error];
+    
+    // 遍历输出查询结果
+    [students enumerateObjectsUsingBlock:^(Student * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSLog(@"Fuzzy Search Result Name : %@, Age : %ld", obj.name, [obj.age integerValue]);
+    }];
+    
+    // 错误处理
+    if (error) {
+        NSLog(@"Fuzzy Search Data Error : %@", error);
+    }
+    
+    /** 
+     模糊查询的关键在于设置模糊查询条件，除了上面的模糊查询条件，还可以设置下面三种条件
+     */
+    // 以lxz开头
+    NSPredicate *predicate1 = [NSPredicate predicateWithFormat:@"name BEGINSWITH %@", @"lxz"];
+    // 以lxz结尾
+    NSPredicate *predicate2 = [NSPredicate predicateWithFormat:@"name ENDSWITH %@"  , @"lxz"];
+    // 其中包含lxz
+    NSPredicate *predicate3 = [NSPredicate predicateWithFormat:@"name contains %@"  , @"lxz"];
+}
+
+#pragma mark - ----- Fetch Request Model ------
+
+/** 
+ 加载模型文件中设置的FetchRequest请求模板，模板名为StudentAge，在School.xcdatamodeld中设置
+ */
+- (IBAction)fetchRequest:(UIButton *)sender {
+    // 通过MOC获取托管对象模型，托管对象模型相当于.xcdatamodeld文件，存储着.xcdatamodeld文件的结构
+    NSManagedObjectModel *model = self.schoolMOC.persistentStoreCoordinator.managedObjectModel;
+    
+    // 通过.xcdatamodeld文件中设置的模板名，获取请求对象
+    NSFetchRequest *fetchRequest = [model fetchRequestTemplateForName:@"StudentAge"];
+    
+    // 请求数据，下面的操作和普通请求一样
+    NSError *error = nil;
+    NSArray<Student *> *dataList = [self.schoolMOC executeFetchRequest:fetchRequest error:&error];
+    
+    // 遍历获取结果，并打印结果
+    [dataList enumerateObjectsUsingBlock:^(Student * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSLog(@"Student.count = %ld, Student.age = %ld", dataList.count, [obj.age integerValue]);
+    }];
+    
+    // 错误处理
+    if (error) {
+        NSLog(@"Execute Fetch Request Error : %@", error);
+    }
+}
+
+/** 
+ 对请求结果进行排序
+ 这个排序是发生在数据库一层的，并不是将结果取出后排序，所以效率比较高
+ */
+- (IBAction)resultSort:(UIButton *)sender {
+    // 建立获取数据的请求对象，并指明操作Student表
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Student"];
+    
+    // 设置请求条件，通过设置的条件，来过滤出需要的数据
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name = %@", @"lxz"];
+    request.predicate = predicate;
+    
+    // 设置请求结果排序方式，可以设置一个或一组排序方式，最后将所有的排序方式添加到排序数组中
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"age" ascending:YES];
+    // NSSortDescriptor的操作都是在SQLite层级完成的，不会将对象加载到内存中，所以对内存的消耗是非常小的
+    request.sortDescriptors = @[sort];
+    
+    // 执行获取请求操作，获取的托管对象将会被存储在一个数组中并返回
+    NSError *error = nil;
+    NSArray<Student *> *students = [self.schoolMOC executeFetchRequest:request error:&error];
+    
+    // 遍历返回结果
+    [students enumerateObjectsUsingBlock:^(Student * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSLog(@"Employee Name : %@, Age : %ld", obj.name, [obj.age integerValue]);
+    }];
+    
+    // 错误处理
+    if (error) {
+        NSLog(@"CoreData Fetch Data Error : %@", error);
+    }
+}
+
+
+#pragma mark - ----- Test Data ------
+
+/** 
+ 添加测试数据方法
+ 如果需要添加其他测试数据，直接改下面的调用即可
+ */
+- (IBAction)addTestData:(UIButton *)sender {
+    [self addStudentTestData];
+}
+
+/** 
+ 添加Student实体的测试数据
+ */
+- (void)addStudentTestData {
+    for (int i = 0; i < 15; i++) {
+        Student *student = [NSEntityDescription insertNewObjectForEntityForName:@"Student" inManagedObjectContext:self.schoolMOC];
+        student.name = [NSString stringWithFormat:@"lxz %d", i];
+        student.age = @(i+15);
+    }
+    
+    NSError *error = nil;
+    if (self.schoolMOC.hasChanges) {
+        [self.schoolMOC save:&error];
     }
 }
 

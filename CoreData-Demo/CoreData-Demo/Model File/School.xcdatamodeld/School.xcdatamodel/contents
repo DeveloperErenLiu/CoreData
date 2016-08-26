@@ -4,14 +4,18 @@
         <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="teacher" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Teacher" syncable="YES"/>
+        <fetchedProperty name="ageFetchedProperty" optional="YES" syncable="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="Student" predicateString="$FETCH_SOURCE.age &lt;=20"/>
+        </fetchedProperty>
     </entity>
     <entity name="Teacher" representedClassName="Teacher" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="subject" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="students" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Student" syncable="YES"/>
     </entity>
+    <fetchRequest name="StudentAge" entity="Student" predicateString="age &gt;= 20"/>
     <elements>
-        <element name="Student" positionX="-45" positionY="0" width="128" height="90"/>
+        <element name="Student" positionX="-45" positionY="0" width="128" height="119"/>
         <element name="Teacher" positionX="-18" positionY="27" width="128" height="90"/>
     </elements>
 </model>
