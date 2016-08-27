@@ -358,10 +358,144 @@
     }
 }
 
+/** 
+ 对返回的结果进行按位运算，这个运算是发生在SQLite数据库层的，所以执行效率很快，对内存的消耗也很小
+ 如果需要对托管对象的某个属性进行运算，比较推荐这种效率高的方法
+ */
+- (IBAction)bitwiseArithmetic:(UIButton *)sender {
+    // 创建请求对象，指明操作Student表
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Student"];
+    // 设置返回值为字典类型，这是为了结果可以通过设置的name名取出，这一步是必须的
+    fetchRequest.resultType = NSDictionaryResultType;
+    
+    // 创建描述对象的name字符串
+    NSString *descriptionName = @"sumOperatin";
+    // 创建描述对象
+    NSExpressionDescription *expressionDes = [[NSExpressionDescription alloc] init];
+    // 设置描述对象的name，最后结果需要用这个name当做key来取出结果
+    expressionDes.name = descriptionName;
+    // 设置返回值类型，根据运算结果设置类型
+    expressionDes.expressionResultType = NSInteger16AttributeType;
+    
+    // 创建具体描述对象，用来描述对哪个属性进行什么运算(可执行的运算类型很多，这里描述的是对age属性，做sum运算)
+    NSExpression *expression = [NSExpression expressionForFunction:@"sum:" arguments:@[[NSExpression expressionForKeyPath:@"age"]]];
+    // 只能对应一个具体描述对象
+    expressionDes.expression = expression;
+    // 给请求对象设置描述对象，这里是一个数组类型，也就是可以设置多个描述对象
+    fetchRequest.propertiesToFetch = @[expressionDes];
+    
+    // 执行请求，返回值还是一个数组，数组中只有一个元素，就是存储计算结果的字典
+    NSError *error = nil;
+    NSArray *resultArr = [self.schoolMOC executeFetchRequest:fetchRequest error:&error];
+    
+    // 通过上面设置的name值，当做请求结果的key取出计算结果
+    NSNumber *number = resultArr.firstObject[descriptionName];
+    NSLog(@"fetch request result is %ld", [number integerValue]);
+    
+    // 错误处理
+    if (error) {
+        NSLog(@"fetch request result error : %@", error);
+    }
+    
+    /** 
+     位运算支持的算法种类很多，具体可以在NSExpression.h文件中查看
+     */
+}
+
+#pragma mark - ----- Batch Operation ------
+
+/** 
+ 注意：无论是批量更新还是批量删除，这个批量操作都是发生在SQLite层的。然而在SQLite发生了批量操作后，并不会主动更新上层MOC中缓存的托管对象，所以在进行批量操作后，需要对相关的MOC进行更新操作。
+ 虽然在客户端很少遇到大量数据处理的情况，但是如果遇到这样的需求，推荐使用批量处理API。
+ */
+
+/** 
+ 批量更新
+ */
+- (IBAction)batchUpdate:(UIButton *)sender {
+    // 创建批量更新对象，并指明操作Student表
+    NSBatchUpdateRequest *updateRequest = [NSBatchUpdateRequest batchUpdateRequestWithEntityName:@"Student"];
+    // 设置返回值类型，默认是什么都不返回(NSStatusOnlyResultType)，这里设置返回发生改变的对象Count值
+    updateRequest.resultType = NSUpdatedObjectsCountResultType;
+    // 设置发生改变字段的字典
+    updateRequest.propertiesToUpdate = @{@"name" : @"lxz"};
+    
+    // 执行请求后，返回值是一个特定的result对象，通过result的属性获取返回的结果。
+    // MOC的这个API是从iOS8出来的，所以需要注意版本兼容。
+    NSError *error = nil;
+    NSBatchUpdateResult *result = [self.schoolMOC executeRequest:updateRequest error:&error];
+    NSLog(@"batch update count is %ld", [result.result integerValue]);
+    
+    // 错误处理
+    if (error) {
+        NSLog(@"batch update request result error : %@", error);
+    }
+    
+    // 更新MOC中的托管对象，使MOC和本地持久化区数据同步
+    [self.schoolMOC refreshAllObjects];
+}
+
+/** 
+ 批量删除
+ */
+- (IBAction)batchDelete:(UIButton *)sender {
+    // 创建请求对象，并指明对Student表做操作
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Student"];
+    // 通过谓词设置过滤条件，设置条件为age小于20
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"age < %ld", 20];
+    fetchRequest.predicate = predicate;
+    
+    // 创建批量删除请求，并使用上面创建的请求对象当做参数进行初始化
+    NSBatchDeleteRequest *deleteRequest = [[NSBatchDeleteRequest alloc] initWithFetchRequest:fetchRequest];
+    // 设置请求结果类型，设置为受影响对象的Count
+    deleteRequest.resultType = NSBatchDeleteResultTypeCount;
+    
+    // 使用NSBatchDeleteResult对象来接受返回结果，通过id类型的属性result获取结果
+    NSError *error = nil;
+    NSBatchDeleteResult *result = [self.schoolMOC executeRequest:deleteRequest error:&error];
+    NSLog(@"batch delete request result count is %ld", [result.result integerValue]);
+    
+    // 错误处理
+    if (error) {
+        NSLog(@"batch delete request error : %@", error);
+    }
+    
+    // 更新MOC中的托管对象，使MOC和本地持久化区数据同步
+    [self.schoolMOC refreshAllObjects];
+}
+
+#pragma mark - ----- Asynchronous Request ------
+
+/** 
+ 异步处理
+ */
+- (IBAction)asyncRequest:(UIButton *)sender {
+    // 创建请求对象，并指明操作Student表
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Student"];
+    
+    // 创建异步请求对象，并通过一个block进行回调，返回结果是一个NSAsynchronousFetchResult类型参数
+    NSAsynchronousFetchRequest *asycFetchRequest = [[NSAsynchronousFetchRequest alloc] initWithFetchRequest:fetchRequest completionBlock:^(NSAsynchronousFetchResult * _Nonnull result) {
+        // 通过返回结果的finalResult属性，获取结果数组
+        [result.finalResult enumerateObjectsUsingBlock:^(Student * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSLog(@"fetch request result Student.count = %ld, Student.name = %@", result.finalResult.count, obj.name);
+        }];
+    }];
+    
+    // 执行异步请求，和批量处理执行同一个请求方法
+    NSError *error = nil;
+    [self.schoolMOC executeRequest:asycFetchRequest error:&error];
+    
+    // 错误处理
+    if (error) {
+        NSLog(@"fetch request result error : %@", error);
+    }
+}
+
 #pragma mark - ----- 连表操作 ------
 /** 
  写在博客里的
  Demo只是来辅助读者更好的理解文章中的内容，应该结合博客和Demo一起学习，只看Demo还是不能理解更深层的道理。
+ Demo中几乎每一行代码都会有注释，各位可以打断点跟着Demo执行流程走一遍，看看各个阶段变量的值。
  */
 
 

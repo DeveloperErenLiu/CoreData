@@ -104,7 +104,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xZ5-sc-glv">
-                                <rect key="frame" x="0.0" y="245" width="320" height="1"/>
+                                <rect key="frame" x="0.0" y="290" width="320" height="1"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -114,7 +114,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRP-3o-4uM">
-                                <rect key="frame" x="20" y="208" width="125" height="30"/>
+                                <rect key="frame" x="20" y="210" width="125" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.88075022920000001" green="1" blue="0.61818030899999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="获取Count方法1"/>
@@ -123,12 +123,48 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Okk-np-ynq">
-                                <rect key="frame" x="175" y="208" width="125" height="30"/>
+                                <rect key="frame" x="175" y="210" width="125" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.88075022920000001" green="1" blue="0.61818030899999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="获取Count方法2"/>
                                 <connections>
                                     <action selector="getResultCount2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="32o-xG-bTp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbc-41-O9B">
+                                <rect key="frame" x="20" y="250" width="125" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.88075022920000001" green="1" blue="0.61818030899999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="位运算"/>
+                                <connections>
+                                    <action selector="bitwiseArithmetic:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dRe-vG-SWJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BAl-vu-qTQ">
+                                <rect key="frame" x="20" y="299" width="125" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.88075022920000001" green="1" blue="0.61818030899999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="批量更新"/>
+                                <connections>
+                                    <action selector="batchUpdate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P3A-RY-OHI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BhJ-rV-Qhd">
+                                <rect key="frame" x="175" y="299" width="125" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.88075022920000001" green="1" blue="0.61818030899999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="批量删除"/>
+                                <connections>
+                                    <action selector="batchDelete:" destination="BYZ-38-t0r" eventType="touchUpInside" id="URG-sd-coM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwF-yj-WTB">
+                                <rect key="frame" x="20" y="337" width="125" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.88075022920000001" green="1" blue="0.61818030899999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="异步请求"/>
+                                <connections>
+                                    <action selector="asyncRequest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="70C-6H-0Ve"/>
                                 </connections>
                             </button>
                         </subviews>
