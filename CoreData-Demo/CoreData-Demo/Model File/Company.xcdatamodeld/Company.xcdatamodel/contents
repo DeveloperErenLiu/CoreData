@@ -10,15 +10,13 @@
         </fetchedProperty>
     </entity>
     <entity name="Employee" representedClassName="Employee" syncable="YES">
-        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="brithday" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="height" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Department" inverseName="employee" inverseEntity="Department" syncable="YES"/>
     </entity>
     <fetchRequest name="EmployeeAge" entity="Employee" predicateString="age &gt; 20"/>
     <elements>
         <element name="Department" positionX="-63" positionY="-18" width="128" height="134"/>
-        <element name="Employee" positionX="153" positionY="-9" width="128" height="120"/>
+        <element name="Employee" positionX="153" positionY="-9" width="128" height="90"/>
     </elements>
 </model>

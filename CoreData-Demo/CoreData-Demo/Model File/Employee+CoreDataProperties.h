@@ -2,7 +2,7 @@
 //  Employee+CoreDataProperties.h
 //  CoreData-Demo
 //
-//  Created by 刘小壮 on 16/8/26.
+//  Created by 刘小壮 on 16/8/27.
 //  Copyright © 2016年 刘小壮. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -15,10 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Employee (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSDate     *brithday;
-@property (nullable, nonatomic, retain) NSNumber   *height;
-@property (nullable, nonatomic, retain) NSString   *name;
-@property (nullable, nonatomic, retain) NSNumber   *age;
+@property (nullable, nonatomic, retain) NSDate *brithday;
+@property (nullable, nonatomic, retain) NSString *name;
 @property (nullable, nonatomic, retain) Department *department;
 
 @end
