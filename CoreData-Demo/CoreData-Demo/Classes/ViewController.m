@@ -26,6 +26,25 @@
 
 @implementation ViewController
 
+#pragma mark - ----- CoreData简单创建流程 ------
+
+/**
+ 模型文件操作
+ 1.1 创建模型文件，后缀名为.xcdatamodeld。创建模型文件之后，可以在其内部进行添加实体等操作(用于表示数据库文件的数据结构)
+ 1.2 添加实体(表示数据库文件中的表结构)，添加实体后需要通过实体，来创建托管对象类文件。
+ 1.3 添加属性并设置类型，可以在属性的右侧面板中设置默认值等选项。(每种数据类型设置选项是不同的)
+ 1.4 创建获取请求模板、设置配置模板等。
+ 1.5 根据指定实体，创建托管对象类文件(基于NSManagedObject的类文件)
+ 
+ 
+ 实例化上下文对象
+ 2.1 创建托管对象上下文(NSManagedObjectContext)
+ 2.2 创建托管对象模型(NSManagedObjectModel)
+ 2.3 根据托管对象模型，创建持久化存储协调器(NSPersistentStoreCoordinator)
+ 2.4 关联并创建本地数据库文件，并返回持久化存储对象(NSPersistentStore)
+ 2.5 将持久化存储协调器赋值给托管对象上下文，完成基本创建。
+ */
+
 #pragma mark - ----- Create CoreData Context ------
 
 /** 
@@ -100,7 +119,7 @@
     
     // 创建谓词对象，过滤出符合要求的对象，也就是要删除的对象
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name = %@", @"lxz"];
-    request.predicate = predicate;
+    request.predicate      = predicate;
     
     // 执行获取操作，找到要删除的对象
     NSError *error = nil;
@@ -131,7 +150,7 @@
     
     // 创建谓词对象，设置过滤条件
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name = %@", @"lxz"];
-    request.predicate = predicate;
+    request.predicate      = predicate;
     
     // 执行获取请求，获取到符合要求的托管对象
     NSError *error = nil;
@@ -151,6 +170,14 @@
     if (error) {
         NSLog(@"CoreData Update Data Error : %@", error);
     }
+    
+    /** 
+     在上面简单的设置了NSPredicate的过滤条件，对于比较复杂的业务需求，还可以设置复合过滤条件，例如下面的例子
+     [NSPredicate predicateWithFormat:@"(age < 25) AND (firstName = XiaoZhuang)"]
+     
+     也可以通过NSCompoundPredicate对象来设置复合过滤条件
+     [[NSCompoundPredicate alloc] initWithType:NSAndPredicateType subpredicates:@[predicate1, predicate2]]
+     */
 }
 
 /** 
@@ -218,7 +245,7 @@
     
     // 创建模糊查询条件。这里设置的带通配符的查询，查询条件是结果包含lxz
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name LIKE %@", @"*lxz*"];
-    request.predicate = predicate;
+    request.predicate      = predicate;
     
     // 执行查询操作
     NSError *error = nil;
@@ -238,14 +265,14 @@
      模糊查询的关键在于设置模糊查询条件，除了上面的模糊查询条件，还可以设置下面三种条件
      */
     // 以lxz开头
-    NSPredicate *predicate1 = [NSPredicate predicateWithFormat:@"name BEGINSWITH %@", @"lxz"];
+    // NSPredicate *predicate1 = [NSPredicate predicateWithFormat:@"name BEGINSWITH %@", @"lxz"];
     // 以lxz结尾
-    NSPredicate *predicate2 = [NSPredicate predicateWithFormat:@"name ENDSWITH %@"  , @"lxz"];
+    // NSPredicate *predicate2 = [NSPredicate predicateWithFormat:@"name ENDSWITH %@"  , @"lxz"];
     // 其中包含lxz
-    NSPredicate *predicate3 = [NSPredicate predicateWithFormat:@"name contains %@"  , @"lxz"];
+    // NSPredicate *predicate3 = [NSPredicate predicateWithFormat:@"name contains %@"  , @"lxz"];
     // 还可以设置正则表达式作为查找条件，这样使查询条件更加强大，下面只是给了个例子
-    NSString *mobile = @"^1(3[0-9]|5[0-35-9]|8[025-9])\\d{8}$";
-    NSPredicate *predicate4 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", mobile];
+    // NSString *mobile = @"^1(3[0-9]|5[0-35-9]|8[025-9])\\d{8}$";
+    // NSPredicate *predicate4 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", mobile];
 }
 
 #pragma mark - ----- Fetch Request ------
@@ -275,7 +302,7 @@
     }
 }
 
-/** 
+/**
  对请求结果进行排序
  这个排序是发生在数据库一层的，并不是将结果取出后排序，所以效率比较高
  */
@@ -537,13 +564,18 @@
     }
 }
 
+/** 
+ 删除Department托管对象
+ 在删除Department托管对象后，其对应的Employee会将关联属性设置为空，Employee并不会被一起删除
+ 在一个托管对象被删除时，其相关联的托管对象是否被删除，是由delete rule决定的
+ */
 - (IBAction)reverseRelationshipsDelete:(UIButton *)sender {
     // 创建谓词对象，指明查找depName为Android的托管对象
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"depName = %@",  @"Android"];
     
     // 创建获取请求对象，指明操作Department实体，并设置谓词属性
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Department"];
-    fetchRequest.predicate = predicate;
+    fetchRequest.predicate       = predicate;
     
     // 执行获取请求操作，得到符合条件的结果数组
     NSError *error = nil;
@@ -573,22 +605,22 @@
 - (IBAction)relationshipsAdd:(UIButton *)sender {
     // 创建Student托管对象并设置属性
     Student *stu1 = [NSEntityDescription insertNewObjectForEntityForName:@"Student" inManagedObjectContext:self.schoolMOC];
-    stu1.name = @"stu1";
-    stu1.age = @16;
+    stu1.name     = @"stu1";
+    stu1.age      = @16;
     
     Student *stu2 = [NSEntityDescription insertNewObjectForEntityForName:@"Student" inManagedObjectContext:self.schoolMOC];
-    stu2.name = @"stu2";
-    stu2.age = @17;
+    stu2.name     = @"stu2";
+    stu2.age      = @17;
     
     // 创建Teacher托管对象并设置属性
     Teacher *tea1 = [NSEntityDescription insertNewObjectForEntityForName:@"Teacher" inManagedObjectContext:self.schoolMOC];
-    tea1.name = @"tea1";
-    tea1.subject = @"english";
+    tea1.name     = @"tea1";
+    tea1.subject  = @"english";
     [tea1 addStudentsObject:stu1];
     
     Teacher *tea2 = [NSEntityDescription insertNewObjectForEntityForName:@"Teacher" inManagedObjectContext:self.schoolMOC];
-    tea2.name = @"tea2";
-    tea2.subject = @"history";
+    tea2.name     = @"tea2";
+    tea2.subject  = @"history";
     [tea2 addStudentsObject:stu2];
     
     // 执行存储操作，向本地数据库中插入数据
@@ -608,7 +640,7 @@
 
 /** 
  删除Teacher托管对象
- 在没有设置inverse的情况下，删除Teacher对象并不会对其关联属性关联的对象造成影响，这主要还是Delete rule设置的结果
+ 删除Teacher对象并不会对其关联属性关联的对象造成影响，这主要还是Delete rule设置的结果
  */
 - (IBAction)relationshipsDelete:(UIButton *)sender {
     // 创建谓词对象，指明查找name为tea1的托管对象
@@ -616,7 +648,7 @@
     
     // 创建获取请求对象，指明操作Teacher实体，并设置predicate条件
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Teacher"];
-    fetchRequest.predicate = predicate;
+    fetchRequest.predicate       = predicate;
     
     // 执行获取操作，并获取结果数组
     NSError *error = nil;
