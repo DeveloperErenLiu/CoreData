@@ -62,15 +62,6 @@
                                     <action selector="pageSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3CO-rb-4gh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhY-uB-zxu">
-                                <rect key="frame" x="98" y="520" width="125" height="30"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.88075022920000001" green="1" blue="0.61818030899999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="添加测试数据"/>
-                                <connections>
-                                    <action selector="addTestData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aal-WL-s3f"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUy-6m-8fu">
                                 <rect key="frame" x="175" y="103" width="125" height="30"/>
                                 <animations/>
@@ -110,6 +101,16 @@
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ITg-A8-5ui">
                                 <rect key="frame" x="0.0" y="350" width="320" height="1"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xW7-6p-vLB">
+                                <rect key="frame" x="0.0" y="435" width="320" height="1"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7fc-p8-1KA">
+                                <rect key="frame" x="0.0" y="480" width="320" height="1"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -172,6 +173,15 @@
                                     <action selector="asyncRequest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="70C-6H-0Ve"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3L-ro-Kak">
+                                <rect key="frame" x="18" y="444" width="282" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.88075022920000001" green="1" blue="0.61818030899999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="NSFetchedResultsController"/>
+                                <connections>
+                                    <action selector="fetchRequestController:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wpa-z9-djV"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BhJ-rV-Qhd">
                                 <rect key="frame" x="175" y="274" width="125" height="30"/>
                                 <animations/>
@@ -206,6 +216,15 @@
                                 <state key="normal" title="设置反向条件(删除)"/>
                                 <connections>
                                     <action selector="reverseRelationshipsDelete:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jy3-7Y-ev2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhY-uB-zxu">
+                                <rect key="frame" x="98" y="509" width="125" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.88075022920000001" green="1" blue="0.61818030899999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="添加测试数据"/>
+                                <connections>
+                                    <action selector="addTestData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aal-WL-s3f"/>
                                 </connections>
                             </button>
                         </subviews>

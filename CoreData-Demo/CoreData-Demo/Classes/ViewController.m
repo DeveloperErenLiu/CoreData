@@ -8,11 +8,12 @@
 
 #import <CoreData/CoreData.h>
 #import "ViewController.h"
+#import "FRCViewController.h"
+
 #import "Student.h"
 #import "Teacher.h"
 #import "Department.h"
 #import "Employee.h"
-
 
 /** 
  因为是Demo，所以这里就不顾及那么多代码规范了，主要是为了讲CoreData技术点。
@@ -670,13 +671,12 @@
     }
 }
 
-#pragma mark - ----- 连表操作 ------
-/** 
- 写在博客里的
- Demo只是来辅助读者更好的理解文章中的内容，应该结合博客和Demo一起学习，只看Demo还是不能理解更深层的道理。
- Demo中几乎每一行代码都会有注释，各位可以打断点跟着Demo执行流程走一遍，看看各个阶段变量的值。
- */
+#pragma mark - ----- NSFetchedResultsController ------
 
+- (IBAction)fetchRequestController:(UIButton *)sender {
+    FRCViewController *frcVC = [[FRCViewController alloc] initWithNibName:@"FRCViewController" bundle:nil];
+    [self presentViewController:frcVC animated:YES completion:nil];
+}
 
 #pragma mark - ----- Test Data ------
 
